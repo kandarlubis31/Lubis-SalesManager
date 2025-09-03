@@ -1,24 +1,51 @@
-*.log
-.DS_Store
-.env
-.env.backup
-.env.production
-.phpactor.json
-.phpunit.result.cache
-/.fleet
-/.idea
-/.nova
-/.phpunit.cache
-/.vscode
-/.zed
-/auth.json
 /node_modules
 /public/build
 /public/hot
 /public/storage
 /storage/*.key
-/storage/pail
 /vendor
+.env
+.env.backup
+.env.production
+.phpunit.result.cache
 Homestead.json
 Homestead.yaml
-Thumbs.db
+npm-debug.log
+yarn-error.log
+/.idea
+/.vscode
+*.suo
+.ntvs
+*.njsproj
+*.sln
+*.sw?
+
+
+---
+
+### **Penjelasan Singkat (Biar Kamu Paham Isinya)**
+
+* `/vendor/` & `/node_modules/`: Ini folder "mesin"-nya Laravel dan JavaScript. Isinya ribuan file dan ukurannya gede banget. Orang lain yang download project kamu tinggal jalanin `composer install` & `npm install` buat dapetin folder ini, jadi gak perlu kita upload.
+* `.env`: **INI YANG PALING PENTING.** File `.env` itu isinya 'kunci brankas' kamu: password database, API key, dll. Kalo file ini sampe ke-upload ke GitHub, sama aja kayak kamu naruh kunci rumah di bawah pot bunga depan rumah. Siapapun bisa masuk.
+* `/public/storage`: Ini folder tempat file-file yang di-upload sama user (kayak foto profil, dll) disimpen. Gak perlu kita simpen di Git.
+* File-file lain: Sisanya itu file-file log, cache, atau file konfigurasi editor (kayak VS Code, PhpStorm) yang cuma relevan di laptop kamu aja.
+
+### **PENTING: Gimana Kalo Udah Terlanjur Upload `.env`?**
+
+Kadang kita lupa dan file `.env`-nya udah terlanjur ke-commit dan ke-push. Kalo ini terjadi, **SEGERA** lakuin ini. Cuma nambahin ke `.gitignore` aja gak cukup.
+
+Buka terminal kamu, terus jalanin dua perintah ini berurutan:
+
+1.  **Hapus `.env` dari "catatan" Git (tapi filenya tetep aman di laptopmu):**
+    ```bash
+    git rm --cached .env
+    ```
+
+2.  **Simpen perubahan "catatan" itu:**
+    ```bash
+    git commit -m "Stop tracking .env file"
+    ```
+
+3.  **Push perubahan ini ke GitHub:**
+    ```bash
+    git push
