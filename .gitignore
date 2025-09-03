@@ -1,51 +1,43 @@
-/node_modules
-/public/build
+# Laravel & PHP
+/vendor/
+.env
+.phpunit.result.cache
+.php-cs-fixer.cache
+
+# Laravel caches
+bootstrap/cache/*.php
+storage/*.key
+storage/app/public
+storage/debugbar
+storage/framework/cache
+storage/framework/sessions
+storage/framework/testing
+storage/framework/views
+storage/logs
+
+# Node
+/node_modules/
 /public/hot
 /public/storage
-/storage/*.key
-/vendor
-.env
-.env.backup
-.env.production
-.phpunit.result.cache
-Homestead.json
-Homestead.yaml
-npm-debug.log
-yarn-error.log
-/.idea
-/.vscode
-*.suo
-.ntvs
-*.njsproj
-*.sln
-*.sw?
+/public/mix-manifest.json
+/public/build
 
+# IDE & OS
+.idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+*.swo
+*.bak
+.DS_Store
+Thumbs.db
 
----
+# Composer & NPM lock (opsional, tergantung workflow)
+# composer.lock
+# package-lock.json
+# pnpm-lock.yaml
+# yarn.lock
 
-### **Penjelasan Singkat (Biar Kamu Paham Isinya)**
-
-* `/vendor/` & `/node_modules/`: Ini folder "mesin"-nya Laravel dan JavaScript. Isinya ribuan file dan ukurannya gede banget. Orang lain yang download project kamu tinggal jalanin `composer install` & `npm install` buat dapetin folder ini, jadi gak perlu kita upload.
-* `.env`: **INI YANG PALING PENTING.** File `.env` itu isinya 'kunci brankas' kamu: password database, API key, dll. Kalo file ini sampe ke-upload ke GitHub, sama aja kayak kamu naruh kunci rumah di bawah pot bunga depan rumah. Siapapun bisa masuk.
-* `/public/storage`: Ini folder tempat file-file yang di-upload sama user (kayak foto profil, dll) disimpen. Gak perlu kita simpen di Git.
-* File-file lain: Sisanya itu file-file log, cache, atau file konfigurasi editor (kayak VS Code, PhpStorm) yang cuma relevan di laptop kamu aja.
-
-### **PENTING: Gimana Kalo Udah Terlanjur Upload `.env`?**
-
-Kadang kita lupa dan file `.env`-nya udah terlanjur ke-commit dan ke-push. Kalo ini terjadi, **SEGERA** lakuin ini. Cuma nambahin ke `.gitignore` aja gak cukup.
-
-Buka terminal kamu, terus jalanin dua perintah ini berurutan:
-
-1.  **Hapus `.env` dari "catatan" Git (tapi filenya tetep aman di laptopmu):**
-    ```bash
-    git rm --cached .env
-    ```
-
-2.  **Simpen perubahan "catatan" itu:**
-    ```bash
-    git commit -m "Stop tracking .env file"
-    ```
-
-3.  **Push perubahan ini ke GitHub:**
-    ```bash
-    git push
+# SQLite database (jika dipakai untuk dev/testing)
+database/database.sqlite
