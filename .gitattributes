@@ -1,11 +1,50 @@
-* text=auto eol=lf
+# Laravel & PHP
+/vendor
+/node_modules
+/public/storage
+/storage/*.key
+/storage/framework/*
+/storage/logs/*
+/bootstrap/cache/*
+/.env
+/.env.backup
+/.env.local
+/.env.production
+/.env.staging
 
-*.blade.php diff=html
-*.css diff=css
-*.html diff=html
-*.md diff=markdown
-*.php diff=php
+# Composer & NPM
+composer.lock
+npm-debug.log
+yarn-error.log
+package-lock.json
+pnpm-lock.yaml
 
-/.github export-ignore
-CHANGELOG.md export-ignore
-.styleci.yml export-ignore
+# Laravel IDE Helper
+.phpstorm.meta.php
+_ide_helper.php
+_ide_helper_models.php
+
+# Cache
+.phpunit.result.cache
+.env.php
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Misc
+/public/hot
+/public/mix-manifest.json
+Homestead.yaml
+Homestead.json
+/.vscode
+/.idea
+*.sublime-project
+*.sublime-workspace
+
+# Custom
+/ngrok.exe
